@@ -1,0 +1,227 @@
+\documentclass[USenglish, mathserif]{beamer}
+
+
+\usepackage[utf8]{inputenx} % For æ, ø, å
+\usepackage{csquotes}       % Quotation marks
+\usepackage{microtype}      % Improved typography
+\usepackage{amssymb}        % Mathematical symbols
+\usepackage{mathtools}      % Mathematical symbols
+\usepackage[absolute, overlay]{textpos} % Arbitrary placement
+\usepackage{media9}
+\usepackage{movie15}
+\usepackage{xmpmulti}
+\usepackage{animate}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{bigstrut}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=blue}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{frcursive}
+\usepackage{calligra}
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\newcommand{\setfont}[2]{{\fontfamily{#1}\selectfont #2}}
+
+\setlength{\TPHorizModule}{\paperwidth} % Textpos units
+\setlength{\TPVertModule}{\paperheight} % Textpos units
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}  % Overlay effects for TikZ
+\setbeamerfont{normal text}{size=\normalsize, series=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
+\setbeamerfont{frametitle}{series=\bfseries}
+\usepackage{animate}
+ 
+
+\newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usetheme{UiB}
+
+
+\newcommand{\eq}{\begin{equation}}
+\newcommand{\no}{\end{equation}}
+\newcommand{\s}{\hspace{.5cm}}
+%\newcommand{\p}{\partial}
+\newcommand{\p}[2]{\f{\partial#1}{\partial#2}}
+\newcommand{\f}{\frac}
+\newcommand{\ol}{\bar}
+\newcommand{\fr}{{\rm Fr}}
+\newcommand{\ti}[1]{\tilde{#1}}
+
+\def\blue{\textcolor{blue}}
+\def\red{\textcolor{red}}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\raggedright
+
+\usefonttheme[onlymath]{serif}
+
+%\usepackage{lmodern} % get rid of warnings
+\usepackage{caption} % improved spacing between figure and caption
+
+\DeclareCaptionLabelSeparator{horse}{:\quad} % change according to your needs
+\captionsetup{
+  labelsep = horse,
+  figureposition = bottom
+} 
+
+
+\setbeamertemplate{caption}[numbered]
+\captionsetup{belowskip=-8pt}
+\captionsetup{aboveskip=-0.2pt}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+\author{Boyuan Yu} % Your name
+\institute[MU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{\bigskip
+\small{McGill University \\ % Your institution for the title page
+\smallskip
+Department of Civil Engineering and Applied Mechanics}} 
+\title{Hydrodynamic Instabilities in Steep-slope Flood Simulation}
+\subtitle{Literature Review Presentation}
+  
+  
+\begin{document}
+%%%%%Roadmap%%%%%
+\AtBeginSubsection[]{
+  \frame<beamer>{ 
+    \frametitle{Outline}   
+
+\tableofcontents[currentsection,currentsubsection,sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/show/shaded/shaded]}
+}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Table of contents}
+%    \tableofcontents[currentsection] %shaded
+		\setcounter{tocdepth}{2} 
+        \tableofcontents 
+\end{frame}
+
+\section{Introduction}
+\subsection{Destructive Power of Tsunami and Flood}
+\begin{frame}{{\fontsize{16}{16}\selectfont Destructive Power of Tsunami and Flood}}
+	Qualitative description about tsunami... \cite{LeVeque2011}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{{\fontsize{16}{16}\selectfont Destructive Power of Tsunami and Flood}}
+	Simulations for real flood and tsunami events: 
+	
+	\red{Maybe rewrite this part using a table?}
+	
+	\begin{itemize}
+		\item \cite{Popinet2012_tohoku}: Tohoku tsunami in 2011, SWE
+		\item \cite{An2015}: Malpasset dam break in 1959 and Baeksan levee failure in 2002, SWE
+		\item \cite{George2011}: Malpasset dam break in 1959, SWE
+		\item \cite{Oishi2013}: Tohoku tsunami, incompressible 3D NS
+		\item \cite{Popinet2011}: Indian Ocean tsunami in 2004, SWE.
+		\item \cite{Popinet2015}: Tohoku tsunami in 2011, SGN
+		\item \cite{Popinet2020}: Tohoku tsunami in 2011, NH multilayer model
+		\item \cite{LeVeque2011}: Chile tsunami in 2010, SWE
+	\end{itemize}
+    \framebreak
+	Description about flood and tsunami events:
+	\begin{itemize}
+		\item \cite{Marras2020}
+		\item \cite{Xie2019}
+		\item 
+	\end{itemize}
+\end{frame}
+\subsection{Previous Studies on Roll Waves}
+\begin{frame}{Intro}
+
+
+\end{frame}
+
+
+% item-by-item presentation
+%\begin{frame}{Introduction}
+%\begin{itemize}[<+-|alert@+>]
+%\item The \red{erosion} of riverbed and the \red{transport} of rocks and muds by floods are processes associated with instability, waves and turbulence in shear flow on channel of
+%steep slope. 
+%\item The driven force to the flow is the \red{gravity}. The resistance is the \red{bed-friction}.
+%\item  Chu, Wu and Khayat (CWK 1991) examined the effect using a \red{rigid-lid approximation}. {Without the waves}, bed-friction is a  {stabilizing} influence. The role of the waves was investigated recently by Karimpour \& Chu (KC 2016) \red{ignoring the effect of the bed-friction}. When bed-friction is ignored, the wave is also a {stabilizing} influence. 
+%\item We study the instability in this thesis for the \red{combined} effect of
+%the waves and the bed-friction.
+%
+%\end{itemize}
+%\end{frame}
+ 
+
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=1\linewidth]{defsketch.jpg}
+%\caption{Definition sketch of the transverse shear flow.}
+%\label{defsketch1}
+%\end{figure}
+
+\section{Numerical Methods}
+\subsection{Numerical Methods for SWEs}
+\subsubsection{Godunov-type FVM}
+\subsection{Numerical Methods for Interfacial Flow}
+\subsection{CFD Software for Flood and Tsunami Modelling}
+
+
+\section{Previous, Present and Future Research}
+  
+  
+\section{References}
+\begin{frame}[allowframebreaks]{References}
+	\textit{Modified from the .bib file of cylinder impact draft.}
+	\bibliographystyle{jfm}
+	\nocite{*}
+	\small\bibliography{example}
+	%\bibliographystyle{alpha}
+	% \tiny\bibliographystyle{alpha}
+\end{frame}
+
+%\begin{frame}[allowframebreaks]{References}
+%\scriptsize
+%\setbeamertemplate{bibliography item}[text]
+%\bibliographystyle{plain}
+%\bibliography{example}
+%\end{frame}
+
+%\begin{frame}{}
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%
+%
+%\begin{center}
+% 
+%\Huge \setfont{calligra}{Thanks for your attention.}
+%  \end{center}
+%  \bigskip
+%\bigskip
+%\bigskip
+%\medskip
+%
+%
+%\normalsize
+%\begin{flushright}
+%%    \line(1,0){135}\\
+%    \textbf{Contact information:}\\
+%     {Boyuan Yu}\\
+%    E-mail: \texttt{boyuan.yu@mcgill.ca}\\
+%%    Department of Civil Engineering and Applied Mechanics\\
+%    McGill University 
+%\end{flushright}
+%\end{frame}
+
+
+
+  
+  
+\end{document}
